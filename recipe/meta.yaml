@@ -64,6 +64,9 @@ test:
     - git --version
     - git clone https://github.com/conda-forge/git-feedstock
 
+    # Git subtree
+    - git subtree --help 2>&1 | grep -q usage  # [unix]
+
     # Git credential commands
     - git-credential-osxkeychain 2>&1 | grep -q usage  # [osx]
 

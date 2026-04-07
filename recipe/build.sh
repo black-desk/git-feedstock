@@ -29,6 +29,13 @@ make \
     STRIP=$STRIP \
     all strip install
 
+# build subtree
+make -C contrib/subtree \
+    --jobs="$CPU_COUNT" \
+    NO_INSTALL_HARDLINKS=1 \
+    STRIP=$STRIP \
+    all install
+
 # build osxkeychain
 # Since git 2.53.0, the osxkeychain helper depends on internal git headers and libgit.a.
 # Its Makefile sets CFLAGS/LDFLAGS via ?=, but conda-build's environment overrides those,
